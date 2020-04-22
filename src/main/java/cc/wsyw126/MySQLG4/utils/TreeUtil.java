@@ -9,15 +9,11 @@ import org.antlr.v4.runtime.DefaultErrorStrategy;
 import java.io.StringReader;
 
 /**
- * TreeUtil.
- * 
- * @author xinzhi.zhang
- * */
+ * @author yangjunpeng
+ * @version $Id: TreeUtil.java, v 0.1 2020年04月22日 下午7:22 yangjunpeng Exp $
+ */
 public class TreeUtil {
 
-    /**
-     * Parse ProgContext from hql string.
-     * */
     public static StatementsParser.ProgContext parseProgContext(String hql) {
 
         try {
@@ -33,24 +29,21 @@ public class TreeUtil {
         }
     }
 
-    /**
-     * Parse table name from ProgContext.
-     * */
     public static String parseTableName(StatementsParser.ProgContext progContext) {
 
         if (progContext instanceof StatementsParser.InsertclContext) {
             return StatementsParser.InsertclContext.class.cast(progContext).insertc().tablename()
-                .TEXT().getText();
+                    .TEXT().getText();
         }
 
         if (progContext instanceof StatementsParser.SelectclContext) {
             return StatementsParser.SelectclContext.class.cast(progContext).selectc().tablename()
-                .TEXT().getText();
+                    .TEXT().getText();
         }
 
         if (progContext instanceof StatementsParser.DeleteclContext) {
             return StatementsParser.DeleteclContext.class.cast(progContext).deletec().tablename()
-                .TEXT().getText();
+                    .TEXT().getText();
         }
 
         throw new RuntimeException("parse error.");

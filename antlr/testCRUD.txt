@@ -1,0 +1,3 @@
+insert into table_name ( name,id,age ) values ("li","12","20" ),("wang","15","20" )
+select (name,id,age) from table_name where id equal #id# and name = "12" and age notin #ages#
+delete  * from  table_name  where id equal #id# and name = "12" and age notin #ages#

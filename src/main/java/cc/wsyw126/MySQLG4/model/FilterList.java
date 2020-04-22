@@ -1,7 +1,3 @@
-/**
- * Alipay.com Inc.
- * Copyright (c) 2004-2020 All Rights Reserved.
- */
 package cc.wsyw126.MySQLG4.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;

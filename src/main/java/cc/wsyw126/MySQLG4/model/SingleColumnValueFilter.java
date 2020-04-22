@@ -1,7 +1,3 @@
-/**
- * Alipay.com Inc.
- * Copyright (c) 2004-2020 All Rights Reserved.
- */
 package cc.wsyw126.MySQLG4.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -70,7 +66,7 @@ public class SingleColumnValueFilter implements Filter {
     /**
      * Setter method for property <tt>ColumnValue</tt>.
      *
-     * @param ColumnValue value to be assigned to property ColumnValue
+     * @param columnValue value to be assigned to property ColumnValue
      */
     public void setColumnValue(Object columnValue) {
         ColumnValue = columnValue;
