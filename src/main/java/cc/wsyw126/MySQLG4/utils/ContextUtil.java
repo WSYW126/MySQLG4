@@ -1,6 +1,7 @@
 package cc.wsyw126.MySQLG4.utils;
 
 import cc.wsyw126.MySQLG4.auto.StatementsParser;
+import cc.wsyw126.MySQLG4.manual.Constant2Visitor;
 import cc.wsyw126.MySQLG4.manual.FilterVisitor;
 import cc.wsyw126.MySQLG4.manual.SelectCidListVisitor;
 import cc.wsyw126.MySQLG4.model.Filter;
@@ -115,4 +116,22 @@ public class ContextUtil {
         FilterVisitor visitor = new FilterVisitor(para);
         return wherecContext.conditionc().accept(visitor);
     }
+
+
+    public static Object parseConstant2(StatementsParser.Constant2Context constant2Context) {
+
+        Constant2Visitor visitor = new Constant2Visitor();
+        return constant2Context.accept(visitor);
+    }
+
+
+    public static List<Object> parseConstant2List(List<StatementsParser.Constant2Context> constant2Contexts) {
+        List<Object> result = new ArrayList<>();
+        for (StatementsParser.Constant2Context constant2Context : constant2Contexts) {
+            result.add(parseConstant2(constant2Context));
+        }
+
+        return result;
+    }
+
 }

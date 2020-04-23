@@ -1,13 +1,12 @@
 package cc.wsyw126.MySQLG4.manual;
 
 import cc.wsyw126.MySQLG4.auto.StatementsParser;
+import cc.wsyw126.MySQLG4.mockdata.MockData;
 import cc.wsyw126.MySQLG4.model.Filter;
 import cc.wsyw126.MySQLG4.utils.ContextUtil;
 import cc.wsyw126.MySQLG4.utils.TreeUtil;
 import com.alibaba.fastjson.JSON;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,16 +16,8 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
 
-        HashMap<String, Object> para = new HashMap<>();
-        para.put("id", "12");
-        ArrayList<Integer> ages = new ArrayList<>();
-        ages.add(20);
-        ages.add(18);
-        ages.add(19);
-        para.put("ages", ages);
 
-
-        StatementsParser.ProgContext progContext = TreeUtil.parseProgContext("select (name,id,age) from table_name where id equal #id# and name = \"12\" and age notin #ages#");
+        StatementsParser.ProgContext progContext = TreeUtil.parseProgContext("select (name,id,age) from table_name where id equal #id# and name = \"12\" and age notin #ages#  and age between #age1# and #age2#");
         StatementsParser.SelectcContext selectcContext = ContextUtil.parseSelectcContext(progContext);
 
 
@@ -39,9 +30,11 @@ public class Test {
         System.out.println("s = " + tableName);
 
 
-        Filter filter = ContextUtil.parseSelectFilter(progContext, para);
+        Filter filter = ContextUtil.parseSelectFilter(progContext, MockData.getMap());
         System.out.println("filter.toString() = " + filter.toString());
 
 
     }
+
+
 }
