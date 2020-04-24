@@ -6,6 +6,7 @@ import cc.wsyw126.MySQLG4.model.Filter;
 import cc.wsyw126.MySQLG4.utils.ContextUtil;
 import cc.wsyw126.MySQLG4.utils.TreeUtil;
 import com.alibaba.fastjson.JSON;
+import org.apache.log4j.Logger;
 
 import java.util.List;
 
@@ -14,6 +15,12 @@ import java.util.List;
  * @version $Id: Test.java, v 0.1 2019年09月06日 上午11:05 yangjunpeng Exp $
  */
 public class Test {
+
+    /**
+     * log.
+     */
+    final private static Logger log = Logger.getLogger(Test.class);
+
     public static void main(String[] args) {
 
 
@@ -23,15 +30,16 @@ public class Test {
 
         StatementsParser.SelectCidListContext selectCidListContext = selectcContext.selectCidList();
         List<String> strings = ContextUtil.parseColumnSchemaList(selectCidListContext);
-        System.out.println("selectcContext = " + JSON.toJSONString(strings));
+
+        log.info("selectcContext = " + JSON.toJSONString(strings));
 
 
         String tableName = TreeUtil.parseTableName(progContext);
-        System.out.println("s = " + tableName);
+        log.info("s = " + tableName);
 
 
         Filter filter = ContextUtil.parseSelectFilter(progContext, MockData.getMap());
-        System.out.println("filter.toString() = " + filter.toString());
+        log.info("filter.toString() = " + filter.toString());
 
 
     }
