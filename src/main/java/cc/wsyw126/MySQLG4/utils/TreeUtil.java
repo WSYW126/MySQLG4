@@ -14,10 +14,10 @@ import java.io.StringReader;
  */
 public class TreeUtil {
 
-    public static StatementsParser.ProgContext parseProgContext(String hql) {
+    public static StatementsParser.ProgContext parseProgContext(String sql) {
 
         try {
-            ANTLRInputStream input = new ANTLRInputStream(new StringReader(hql));
+            ANTLRInputStream input = new ANTLRInputStream(new StringReader(sql));
             StatementsLexer lexer = new StatementsLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             StatementsParser parser = new StatementsParser(tokens);

@@ -42,24 +42,24 @@ public class ContextUtil {
 
     public static StatementsParser.InsertcContext parseInsertcContext(StatementsParser.ProgContext progContext) {
 
-        StatementsParser.InsertclContext insertHqlClContext = (StatementsParser.InsertclContext) progContext;
-        StatementsParser.InsertcContext result = insertHqlClContext.insertc();
+        StatementsParser.InsertclContext insertclContext = (StatementsParser.InsertclContext) progContext;
+        StatementsParser.InsertcContext result = insertclContext.insertc();
 
         return result;
     }
 
     public static StatementsParser.SelectcContext parseSelectcContext(StatementsParser.ProgContext progContext) {
 
-        StatementsParser.SelectclContext selectHqlClContext = (StatementsParser.SelectclContext) progContext;
-        StatementsParser.SelectcContext result = selectHqlClContext.selectc();
+        StatementsParser.SelectclContext selectclContext = (StatementsParser.SelectclContext) progContext;
+        StatementsParser.SelectcContext result = selectclContext.selectc();
 
         return result;
     }
 
-    public static StatementsParser.DeletecContext parseDeletehqlcContext(StatementsParser.ProgContext progContext) {
+    public static StatementsParser.DeletecContext parseDeletecContext(StatementsParser.ProgContext progContext) {
 
-        StatementsParser.DeleteclContext deleteHqlClContext = (StatementsParser.DeleteclContext) progContext;
-        StatementsParser.DeletecContext result = deleteHqlClContext.deletec();
+        StatementsParser.DeleteclContext deletecContext = (StatementsParser.DeleteclContext) progContext;
+        StatementsParser.DeletecContext result = deletecContext.deletec();
 
         return result;
     }
